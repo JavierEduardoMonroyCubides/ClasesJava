@@ -7,7 +7,7 @@ public class Principal {
 
 	public static void main(String[] args) {
 		 Factura f= new Factura("ordenador",1000);
-		 Factura f2= new Factura("movil",300);
+		 Factura f2= new Factura("ordenador",300);
 		 Factura f3= new Factura("impresora",200);
 		 Factura f4= new Factura("imac",1500);
 		 
@@ -25,10 +25,16 @@ public class Principal {
 		 .get();
 		 System.out.println(facturaFiltro.getImporte());
 		 */
-		 
 		 lista.stream()
-		 .filter(importe->importe.getImporte()>500)
-		 .map(elemento->elemento.getNombre())
+		 .distinct()
+		 .filter(factura -> factura.getNombre().length()>5)
+		 .forEach(factura -> System.out.println(lista));
+		 
+		 /*
+		 lista.stream()
+		 .filter(factura->factura.getImporte()>500)
+		 .map(factura->factura.getNombre())
 		 .forEach(System.out::println);
+		 */
 	}
 }
